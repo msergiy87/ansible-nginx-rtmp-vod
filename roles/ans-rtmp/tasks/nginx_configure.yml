@@ -1,0 +1,24 @@
+---
+# tasks file for ans-rtmp
+
+- name: Nginx | Check for existence of Nginx configuration
+  stat:
+    path: "{{nginx_dir}}/conf/nginx.conf"
+  register: nginx_config
+
+- name: Nginx | Make sure the Nginx configuration is updated
+  template:
+    src: nginx.conf.j2
+    dest: "{{nginx_dir}}/conf/nginx.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart nginx
+
+- name: Nginx | Start Nginx the first time
+  service:
+    name: nginx
+    state: started
+  register: nginx_first_start
+  when: not nginx_config.stat.exists

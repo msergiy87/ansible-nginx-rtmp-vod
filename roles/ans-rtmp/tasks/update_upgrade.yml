@@ -1,0 +1,8 @@
+---
+# tasks file for ans-rtmp
+
+- name: Update and upgrade apt-based Linux
+  apt: update-cache=yes state=latest
+
+#- name: upgrade a server
+#  apt: upgrade=full

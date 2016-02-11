@@ -1,0 +1,8 @@
+---
+- hosts: web
+  user: root
+
+  roles:
+    - role: ans-vod
+  tasks:
+    - debug: msg={{ansible_default_ipv4}}

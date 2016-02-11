@@ -1,0 +1,7 @@
+---
+# tasks file for ans-vod
+
+- include: update_upgrade.yml
+- include: nginx_install.yml
+- include: nginx_configure.yml
+- include: php-fpm.yml

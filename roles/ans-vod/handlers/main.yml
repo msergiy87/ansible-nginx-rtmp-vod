@@ -1,0 +1,12 @@
+---
+# handlers file for ans-vod
+
+- name: restart nginx
+  service: name=nginx state=restarted
+  when: not nginx_first_start.changed
+
+- name: reload nginx
+  service: name=nginx state=reloaded
+
+- name: restart php5-fpm
+  service: name=php5-fpm state=restarted

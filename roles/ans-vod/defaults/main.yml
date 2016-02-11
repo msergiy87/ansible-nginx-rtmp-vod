@@ -1,0 +1,32 @@
+---
+# defaults file for ans-vod
+
+nginx_source_version: "1.8.0"
+
+nginx_user: www-data
+nginx_group: www-data
+nginx_uid: 33
+nginx_gid: 33
+
+nginx_dir: "/opt/nginx"
+nginx_www_dir: "/var/www"
+nginx_log_dir: "/var/log/nginx"
+nginx_pid: "{{nginx_dir}}/logs/nginx.pid"
+
+# nginx.conf
+nginx_error_log_options: null
+nginx_error_log_filename: 'error.log'
+nginx_disable_access_log: no
+nginx_access_logs:
+  - name: "main"
+    format: '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'
+    options: null
+    filename: "access.log"
+
+# source
+nginx_source_url: "http://nginx.org/download/nginx-{{nginx_source_version}}.tar.gz"
+### nginx_source_prefix: "/opt/nginx"
+### nginx_source_conf_path: "{{nginx_dir}}/nginx.conf"
+nginx_source_sbin_path: "/usr/local/sbin"
+
+nginx_source_configure_flags: '--prefix={{nginx_dir}} --sbin-path={{nginx_source_sbin_path}} --user={{nginx_user}} --group={{nginx_group}} --with-http_ssl_module --add-module=/tmp/nginx-vod-module-master'
