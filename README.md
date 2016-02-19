@@ -7,3 +7,5 @@ In roles/defaults/main.yml you can set nginx version as a variable and other par
 ansible-playbook -i hosts ans-rtmp.yml
 ansible-playbook -i hosts ans-vod.yml
 ```
+Test with:
+Ubuntu 14.04
