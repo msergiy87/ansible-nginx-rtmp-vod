@@ -1,7 +1,7 @@
 ---
 # defaults file for ans-rtmp
 
-nginx_source_version: "1.8.0"
+nginx_source_version: "1.8.1"
 
 nginx_user: www-data
 nginx_group: www-data
